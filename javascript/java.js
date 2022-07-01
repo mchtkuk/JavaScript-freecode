@@ -1,8 +1,4 @@
-var myName;
 
-
-var MyVar = 5;
-
-
-
-var MyFirstName = "zort";
+const myVar = 5;
+myVar = --myVar;
+console.log(myVar);
