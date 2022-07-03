@@ -1,4 +1,8 @@
+let myStr = "This is the first sentence.";
+myStr += "This is the second sentence.";
+console.log(myStr);
 
-const myVar = 5;
-myVar = --myVar;
-console.log(myVar);
+
+const myList = [["cips", 14],["kola", 5],["patlican", 7],["salam", 5],["salatalık", 5]];
+
+console.log(myList);
