@@ -117,9 +117,7 @@ processed = processArg(7);
 
 //Pseudocode
 
-if (condition is true) {
-  statement is executed
-}
+// if (x true) {statement is executed}
 Example
 
 function test (myCondition) {
@@ -131,6 +129,403 @@ function test (myCondition) {
 
 test(true);
 test(false);
-test(true) returns the string It was true, and test(false) returns the string It was false.
+test(true) //returns the string It was true, and test(false) returns the string It was false.
 
 //When test is called with a value of true, the if statement evaluates myCondition to see if it is true or not. Since it is true, the function returns It was true. When we call test with a value of false, myCondition is not true and the statement in the curly braces is not executed and the function returns It was false.
+
+
+//Sometimes you will need to test more than one thing at a time. The logical and operator (&&) returns true if and only if the operands to the left and right of it are true.
+
+//The same effect could be achieved by nesting an if statement inside another if:
+
+if (num > 5) {
+  if (num < 10) {
+    return "Yes";
+  }
+}
+return "No";
+//will only return Yes if num is greater than 5 and less than 10. The same logic can be written as:
+if (num > 5 && num < 10) {
+  return "Yes";
+}
+return "No";
+//Replace the two if statements with one statement, using the && operator, which will return the string Yes if val is less than or equal to 50 and greater than or equal to 25. Otherwise, will return the string No.
+
+
+//The logical or operator (||) returns true if either of the operands is true. Otherwise, it returns false.
+
+//The logical or operator is composed of two pipe symbols: (||). This can typically be found between your Backspace and Enter keys.
+
+//The pattern below should look familiar from prior waypoints:
+
+if (num > 10) {
+  return "No";
+}
+if (num < 5) {
+  return "No";
+}
+return "Yes";
+//will return Yes only if num is between 5 and 10 (5 and 10 included). The same logic can be written as:
+
+if (num > 10 || num < 5) {
+  return "No";
+}
+return "Yes";
+//Combine the two if statements into one statement which returns the string Outside if val is not between 10 and 20, inclusive. Otherwise, return the string Inside.
+
+function testLogicalOr(val) {
+  // Only change code below this line
+
+  if (val > 20 || val < 10) {
+    return "Outside";
+  }
+
+  // Only change code above this line
+  return "Inside";
+}
+
+testLogicalOr(15);
+
+
+//When a condition for an if statement is true, the block of code following it is executed. What about when that condition is false? Normally nothing would happen. With an else statement, an alternate block of code can be executed.
+
+if (num > 10) {
+  return "Bigger than 10";
+} else {
+  return "10 or Less";
+}
+
+//Combine the if statements into a single if/else statement.
+
+
+function testElse(val) {
+  let result = "";
+if (val > 5) {
+  result = "Bigger than 5";
+}
+  else {
+    result = "5 or Smaller"
+  }
+
+  return result;
+}
+
+testElse(4);
+
+//If you have multiple conditions that need to be addressed, you can chain if statements together with else if statements.
+
+if (num > 15) {
+  return "Bigger than 15";
+} else if (num < 5) {
+  return "Smaller than 5";
+} else {
+  return "Between 5 and 15";
+}
+
+
+//Order is important in if, else if statements.
+//The function is executed from top to bottom so you will want to be careful of what statement comes first.
+//Take these two functions as an example.
+
+//Here's the first:
+
+function foo(x) {
+  if (x < 1) {
+    return "Less than one";
+  } else if (x < 2) {
+    return "Less than two";
+  } else {
+    return "Greater than or equal to two";
+  }
+}
+//And the second just switches the order of the statements:
+
+
+function bar(x) {
+  if (x < 2) {
+    return "Less than two";
+  } else if (x < 1) {
+    return "Less than one";
+  } else {
+    return "Greater than or equal to two";
+  }
+}
+
+//While these two functions look nearly identical if we pass a number to both we get different outputs.
+
+
+bar(0)
+foo(0) // will return the string Less than one, and bar(0) will return the string Less than two.
+
+
+//if/else statements can be chained together for complex logic. Here is pseudocode of multiple chained if / else if statements:
+
+if (condition1) {
+  statement1
+} else if (condition2) {
+  statement2
+} else if (condition3) {
+  statement3
+} else {
+  statementN
+}
+
+//Golf Code
+
+const names = ["Hole-in-one!", "Eagle", "Birdie", "Par", "Bogey", "Double Bogey", "Go Home!"];
+
+function golfScore(par, strokes) {
+  // Only change code below this line
+  if (strokes == 1) {
+    return names[0];
+  }
+  else if (strokes <= par - 2) {
+    return names[1];
+  }
+  else if (strokes == par - 1) {
+    return names[2];
+  }
+  else if (strokes == par) {
+    return names[3];
+  }
+  else if (strokes == par + 1) {
+    return names[4];
+  }
+  else if (strokes == par + 2) {
+    return names[5];
+  }
+  else if (strokes >= par + 3) {
+    return names[6];
+  }
+
+  // Only change code above this line
+}
+
+golfScore(5, 4);
+
+console.log(golfScore(5,4))
+
+//
+
+//In a switch statement you may not be able to specify all possible values as case statements. Instead, you can add the default statement which will be executed if no matching case statements are found. Think of it like the final else statement in an if/else chain.
+
+//A default statement should be the last case.
+
+switch (num) {
+  case value1:
+    statement1;
+    break;
+  case value2:
+    statement2;
+    break;
+  default:
+    defaultStatement;
+    break;
+}
+//Write a switch statement to set answer for the following conditions:
+a - apple
+b - bird
+c - cat
+//default - stuff
+
+function switchOfStuff(val) {
+  let answer = "";
+  // Only change code below this line
+switch (val) {
+  case "a":
+    answer = "apple";
+    break;
+  case "b":
+    answer = "bird";
+    break;
+  case "c":
+    answer = "cat";
+    break;
+  default:
+    answer = "stuff";
+    break;
+
+  }
+  
+
+
+  // Only change code above this line
+  return answer;
+}
+
+switchOfStuff(1);
+
+console.log(switchOfStuff(""));
+
+
+//
+
+//If you have many options to choose from, a switch statement can be easier to write than many chained if/else if statements. The following:
+
+if (val === 1) {
+  answer = "a";
+} else if (val === 2) {
+  answer = "b";
+} else {
+  answer = "c";
+}
+//can be replaced with:
+
+switch (val) {
+  case 1:
+    answer = "a";
+    break;
+  case 2:
+    answer = "b";
+    break;
+  default:
+    answer = "c";
+}
+//Change the chained if/else if statements into a switch statement.
+
+function chainToSwitch(val) {
+  let answer = "";
+  // Only change code below this line
+
+  switch (val) {
+    case "bob":
+    answer = "Marley";
+    break;
+    case 42: 
+    answer = "The Answer";
+    break;
+    case 1:
+    answer = "There is no #1";
+    break;
+    case 99: 
+    answer = "Missed me by this much!";
+    break;
+    case 7:
+    answer = "Ate Nine";
+    break;
+    case "John":
+    answer = "";
+    break;
+    case 156:
+    answer = "";
+    break;
+  }
+
+  // Only change code above this line
+  return answer;
+}
+
+chainToSwitch(7);
+
+console.log(chainToSwitch());
+
+//When a return statement is reached, the execution of the current function stops and control returns to the calling location.
+
+Example
+
+function myFun() {
+  console.log("Hello");
+  return "World";
+  console.log("byebye")
+}
+myFun();
+
+//The above will display the string Hello in the console, and return the string World. The string byebye will never display in the console, because the function exits at the return statement.
+
+//Modify the function abTest so that if a or b are less than 0 the function will immediately exit with a value of undefined.
+
+//Hint
+//Remember that undefined is a keyword, not a string.
+
+  // Setup
+function abTest(a, b) {
+  // Only change code below this line
+if (a < 0 || b < 0) {
+  return undefined;
+}
+
+
+  // Only change code above this line
+
+  return Math.round(Math.pow(Math.sqrt(a) + Math.sqrt(b), 2));
+}
+
+abTest(2,2);
+console.log(abTest(2,2))
+
+//In the casino game Blackjack, a player can determine whether they have an advantage on the next hand over the house by keeping track of the relative number of high and low cards remaining in the deck. This is called Card Counting.
+
+//Having more high cards remaining in the deck favors the player. Each card is assigned a value according to the table below. When the count is positive, the player should bet high. When the count is zero or negative, the player should bet low.
+
+//Count Change	Cards
+//+1	2, 3, 4, 5, 6
+//0	7, 8, 9
+//-1	10, 'J', 'Q', 'K', 'A'
+//You will write a card counting function. It will receive a card parameter, which can be a number or a string, and increment or decrement the global count variable according to the card's value (see table). The function will then return a string with the current count and the string Bet if the count is positive, or Hold if the count is zero or negative. The current count and the player's decision (Bet or Hold) should be separated by a single space.
+
+//Example Outputs: -3 Hold or 5 Bet
+
+//Hint
+//Do NOT reset count to 0 when value is 7, 8, or 9.
+//Do NOT return an array.
+//Do NOT include quotes (single or double) in the output.
+
+let count = 0;
+
+function cc(card) {
+  // Only change code below this line
+  switch (card) {
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+      count += 1;
+      break;
+    case 7:
+    case 8:
+    case 9:
+      count += 0;
+      break;
+    case 10:
+    case 'J':
+    case 'Q':
+    case 'K':
+    case 'A':
+      count -= 1;
+      break;
+  }
+
+  return count + (count > 0 ? " Bet" : " Hold")
+  
+  // Only change code above this line
+}
+
+cc(2); cc(3); cc(7); cc('K'); cc('A');
+
+console.log(cc(''))
+
+//
+
+//You may have heard the term object before.
+
+//Objects are similar to arrays, except that instead of using indexes to access and modify their data, you access the data in objects through what are called properties.
+
+//Objects are useful for storing data in a structured way, and can represent real world objects, like a cat.
+
+//Here's a sample cat object:
+
+const cat = {
+  "name": "Whiskers",
+  "legs": 4,
+  "tails": 1,
+  "enemies": ["Water", "Dogs"]
+};
+//In this example, all the properties are stored as strings, such as name, legs, and tails. However, you can also use numbers as properties. You can even omit the quotes for single-word string properties, as follows:
+
+const anotherObject = {
+  make: "Ford",
+  5: "five",
+  "model": "focus"
+};
+//owever, if your object has any non-string properties, JavaScript will automatically typecast them as strings.
