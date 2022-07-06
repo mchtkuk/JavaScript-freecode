@@ -39,7 +39,7 @@ function fun1() {
 
 // Only change code above this line
 
-function fun2() {
+function  fun2() {
   var output = "";
   if (typeof myGlobal != "undefined") {
     output += "myGlobal: " + myGlobal;
@@ -529,3 +529,178 @@ const anotherObject = {
   "model": "focus"
 };
 //owever, if your object has any non-string properties, JavaScript will automatically typecast them as strings.
+
+
+//Another use of bracket notation on objects is to access a property which is stored as the value of a variable. This can be very useful for iterating through an object's properties or when accessing a lookup table.
+
+//Here is an example of using a variable to access a property:
+
+const dogs = {
+  Fido: "Mutt",
+  Hunter: "Doberman",
+  Snoopie: "Beagle"
+};
+
+const myDog = "Hunter";
+const myBreed = dogs[myDog];
+console.log(myBreed);
+
+//The string Doberman would be displayed in the console.
+
+
+// Setup
+const testObj = {
+  12: "Namath",
+  16: "Montana",
+  19: "Unitas"
+};
+
+// Only change code below this line
+const playerNumber = 16;  // Change this line
+const player = testObj[playerNumber];   // Change this line
+
+console.log(player);
+
+// the string Montana would be displayed in the console.
+
+
+//Updating Object Properties
+//After you've created a JavaScript object, you can update its properties at any time just like you would update any other variable. You can use either dot or bracket notation to update.
+
+//For example, let's look at ourDog:
+
+const ourDog = {
+  "name": "Camper",
+  "legs": 4,
+  "tails": 1,
+  "friends": ["everything!"]
+};
+//Since he's a particularly happy dog, let's change his name to the string Happy Camper. 
+
+//Here's how we update his object's name property: ourDog.name = "Happy Camper"; or ourDog["name"] = "Happy Camper"; Now when we evaluate ourDog.name, instead of getting Camper, we'll get his new name, Happy Camper.
+
+
+// Setup
+const myDogg = {
+  "name": "Coder",
+  "legs": 4,
+  "tails": 1,
+  "friends": ["freeCodeCamp Campers"]
+};
+
+// Only change code below this line
+
+myDogg.name = "Happy Coder";
+
+
+//
+
+
+//Add New Properties to a JavaScript Object
+//You can add new properties to existing JavaScript objects the same way you would modify them.
+
+//Here's how we would add a bark property to ourDog:
+
+ourDog.bark = "bow-wow";
+or
+
+ourDog["bark"] = "bow-wow";
+
+//
+
+const myDoggg = {
+  "name": "Happy Coder",
+  "legs": 4,
+  "tails": 1,
+  "friends": ["freeCodeCamp Campers"]
+};
+
+myDoggg.bark = "woof";
+
+//Delete Properties from a JavaScript Object
+//We can also delete properties from objects like this:
+
+delete ourDogggg.bark;
+
+
+// Setup
+const myDoggggg = {
+  "name": "Happy Coder",
+  "legs": 4,
+  "tails": 1,
+  "friends": ["freeCodeCamp Campers"],
+  "bark": "woof"
+};
+
+// Only change code below this line
+
+delete myDoggggg.tails;
+
+//
+
+
+//sing Objects for Lookups
+//Objects can be thought of as a key/value storage, like a dictionary. If you have tabular data, you can use an object to lookup values rather than a switch statement or an if/else chain. This is most useful when you know that your input data is limited to a certain range.
+
+//Here is an example of a simple reverse alphabet lookup:
+
+const alpha = {
+  1:"Z",
+  2:"Y",
+  3:"X",
+  4:"W",
+  24:"C",
+  25:"B",
+  26:"A"
+};
+
+alpha[2];
+alpha[24];
+
+const value = 2;
+alpha[value];
+
+//alpha[2] is the string Y, alpha[24] is the string C, and alpha[value] is the string Y.
+
+
+//Convert the switch statement into an object called lookup. Use it to look up val and assign the associated string to the result variable.
+
+// Setup
+function phoneticLookup(val) {
+  let result = "";
+
+  // Only change code below this line
+   var lookup = {
+    "alpha": "Adams",
+    "bravo": "Boston",
+    "charlie": "Chicago",
+    "delta": "Denver",
+    "echo": "Easy",
+    "foxtrot": "Frank",
+  };
+
+  result = lookup[val];
+  // Only change code above this line
+  return result;
+}
+
+console.log(phoneticLookup("charlie"));
+
+
+//
+
+//Testing Objects for Properties
+//Sometimes it is useful to check if the property of a given object exists or not. We can use the .hasOwnProperty(propname) method of objects to determine if that object has the given property name. .hasOwnProperty() returns true or false if the property is found or not.
+
+//Example
+
+const myObj = {
+  top: "hat",
+  bottom: "pants"
+};
+
+myObj.hasOwnProperty("top");
+myObj.hasOwnProperty("middle");
+
+//The first hasOwnProperty returns true, while the second returns false.
+
