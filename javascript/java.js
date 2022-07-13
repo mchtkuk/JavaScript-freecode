@@ -799,3 +799,496 @@ const myPlants = [
 const secondTree = myPlants[1].list[1];
 
 //
+
+
+//Record Collection **
+//You are given an object literal representing a part of your musical album collection. Each album has a unique id number as its key and several other properties. Not all albums have complete information.
+
+//You start with an updateRecords function that takes an object literal, records, containing the musical album collection, an id, a prop (like artist or tracks), and a value. Complete the function using the rules below to modify the object passed to the function.
+
+//Your function must always return the entire record collection object.
+//If prop isn't tracks and value isn't an empty string, update or set that album's prop to value.
+//If prop is tracks but the album doesn't have a tracks property, create an empty array and add value to it.
+//If prop is tracks and value isn't an empty string, add value to the end of the album's existing tracks array.
+//If value is an empty string, delete the given prop property from the album.
+//Note: A copy of the recordCollection object is used for the tests.
+
+const recordCollection = {
+  2548: {
+    albumTitle: 'Slippery When Wet',
+    artist: 'Bon Jovi',
+    tracks: ['Let It Rock', 'You Give Love a Bad Name']
+  },
+  2468: {
+    albumTitle: '1999',
+    artist: 'Prince',
+    tracks: ['1999', 'Little Red Corvette']
+  },
+  1245: {
+    artist: 'Robert Palmer',
+    tracks: []
+  },
+  5439: {
+    albumTitle: 'ABBA Gold'
+  }
+};
+
+// Only change code below this line
+function updateRecords(records, id, prop, value) {
+  if (prop !== "tracks" && value !== "") {
+    records[id][prop] = value;
+  }
+  else if (prop === "tracks" && records[id].hasOwnProperty("tracks") === false) {
+    records[id][prop] = [value];
+  }
+  else if (prop === "tracks" && value !== "") {
+    records[id][prop].push(value);
+  }
+  else if (value === "") {
+    delete records[id][prop];
+  }
+  return records;
+}
+
+updateRecords(recordCollection, 5439, 'artist', 'ABBA');
+
+console.log(updateRecords(recordCollection, 5439, 'artist', 'ABBA'));
+
+
+// 
+
+// Iterate with JavaScript While Loops
+// You can run the same code multiple times by using a loop.
+
+// The first type of loop we will learn is called a while loop because it runs while a specified condition is true and stops once that condition is no longer true.
+
+const ourArray = [];
+let i = 0;
+
+while (i < 5) {
+  ourArray.push(i);
+  i++;
+}
+// In the code example above, the while loop will execute 5 times and append the numbers 0 through 4 to ourArray.
+
+// Let's try getting a while loop to work by pushing values to an array.
+
+// Add the numbers 5 through 0 (inclusive) in descending order to myArray using a while loop.
+
+
+// Setup
+const myArray = [];
+
+// Only change code below this line
+
+var ii = 5;
+while (ii > -1) {
+    myArray.push(ii);
+    ii--;
+}
+
+console.log(myArray);
+
+// [ 5, 4, 3, 2, 1, 0 ]
+
+//
+
+//Iterate with JavaScript For Loops
+//You can run the same code multiple times by using a loop.
+
+//The most common type of JavaScript loop is called a for loop because it runs for a specific number of times.
+
+//For loops are declared with three optional expressions separated by semicolons:
+
+//for (a; b; c), where a is the initialization statement, b is the condition statement, and c is the final expression.
+
+//The initialization statement is executed one time only before the loop starts. It is typically used to define and setup your loop variable.
+
+//The condition statement is evaluated at the beginning of every loop iteration and will continue as long as it evaluates to true. When the condition is false at the start of the iteration, the loop will stop executing. This means if the condition starts as false, your loop will never execute.
+
+//The final expression is executed at the end of each loop iteration, prior to the next condition check and is usually used to increment or decrement your loop counter.
+
+//In the following example we initialize with i = 0 and iterate while our condition i < 5 is true. We'll increment i by 1 in each loop iteration with i++ as our final expression.
+
+const ourrArray = [];
+
+for (let i = 0; i < 5; i++) {
+  ourrArray.push(i);
+}
+ // ourrArray will now have the value [0, 1, 2, 3, 4].
+
+// Use a for loop to push the values 1 through 5 onto myArray.
+
+// Setup
+const myArrayy = [];
+
+// Only change code below this line
+
+for (let i = 1; i < 6; i++) {
+  myArrayy.push(i);
+}
+
+console.log(myArrayy)
+
+// [ 1, 2, 3, 4, 5 ]
+
+
+// Iterate Odd Numbers With a For Loop
+// For loops don't have to iterate one at a time. By changing our final-expression, we can count by even numbers.
+
+// We'll start at i = 0 and loop while i < 10. We'll increment i by 2 each loop with i += 2.
+
+// const ourArray = [];
+
+for (let i = 0; i < 10; i += 2) {
+  ourArray.push(i);
+}
+// ourArray will now contain [0, 2, 4, 6, 8]. Let's change our initialization so we can count by odd numbers.
+
+// Push the odd numbers from 1 through 9 to myArray using a for loop.
+
+// Setup
+const myArrayyy = [];
+
+// Only change code below this line
+
+for (let i = 1; i < 11; i +=2) {
+  myArrayyy.push(i);
+}
+
+console.log(myArrayyy);
+
+// [ 1, 3, 5, 7, 9 ]
+
+// Backwards =
+
+// Setup
+const myArrayyyy = [];
+
+// Only change code below this line
+
+for (let i = 9; i > 0; i -= 2) {
+  myArrayyyy.push(i);
+}
+
+console.log(myArrayyyy)
+// [ 9, 7, 5, 3, 1 ]
+
+// Iterate Through an Array with a For Loop
+
+//Declare and initialize a variable total to 0. Use a for loop to add the value of each element of the myArr array to total.
+
+// Setup
+const myArr = [2, 3, 4, 5, 6];
+
+// Only change code below this line
+var total = 0;
+
+for (var ii = 0; ii < myArr.length; ii++) {
+  total += myArr[ii];
+}
+
+console.log(total);
+
+// it will output the total = 20
+
+//Nesting For Loops
+//If you have a multi-dimensional array, you can use the same logic as the prior waypoint to loop through both the array and any sub-arrays. Here is an example:
+
+const arr = [
+  [1, 2], [3, 4], [5, 6]
+];
+
+for (let i = 0; i < arr.length; i++) {
+  for (let j = 0; j < arr[i].length; j++) {
+    console.log(arr[i][j]);
+  }
+}
+
+//This outputs each sub-element in arr one at a time. Note that for the inner loop, we are checking the .length of arr[i], since arr[i] is itself an array.
+
+// replacing loops using Recursion
+
+function sum(arr, n) {
+  // Only change code below this line
+  if (n <= 0) {
+    return 0;
+  } else {
+    return sum(arr, n - 1) + arr[n - 1];
+  }
+  // Only change code above this line
+}
+
+console.log(sum([1], 0)) 
+console.log(sum([2, 3, 4], 1))
+console.log(sum([2, 3, 4, 5], 3))
+
+//sum([1], 0) should equal 0.
+//sum([2, 3, 4], 1) should equal 2.
+//sum([2, 3, 4, 5], 3) should equal 9.
+
+
+//Profile Lookup
+//We have an array of objects representing different people in our contacts lists.
+
+//A lookUpProfile function that takes name and a property (prop) as arguments has been pre-written for you.
+
+//The function should check if name is an actual contact's firstName and the given property (prop) is a property of that contact.
+
+//If both are true, then return the "value" of that property.
+
+//If name does not correspond to any contacts then return the string No such contact.
+
+//If prop does not correspond to any valid properties of a contact found to match name then return the string No such property.
+
+
+// Setup
+const contacts = [
+  {
+    firstName: "Akira",
+    lastName: "Laine",
+    number: "0543236543",
+    likes: ["Pizza", "Coding", "Brownie Points"],
+  },
+  {
+    firstName: "Harry",
+    lastName: "Potter",
+    number: "0994372684",
+    likes: ["Hogwarts", "Magic", "Hagrid"],
+  },
+  {
+    firstName: "Sherlock",
+    lastName: "Holmes",
+    number: "0487345643",
+    likes: ["Intriguing Cases", "Violin"],
+  },
+  {
+    firstName: "Kristian",
+    lastName: "Vos",
+    number: "unknown",
+    likes: ["JavaScript", "Gaming", "Foxes"],
+  },
+];
+
+function lookUpProfile(name, prop) {
+  // Only change code below this line
+for (var i = 0; i < contacts.length; i++) {
+    if(contacts[i].firstName === name) {
+      return contacts[i][prop] || "No such property";
+    }
+  }
+  return "No such contact";
+  // Only change code above this line
+}
+
+lookUpProfile("Akira", "likes");
+
+
+
+//generate Random Fractions with JavaScript
+//Random numbers are useful for creating random behavior.
+
+//JavaScript has a Math.random() function that generates a random decimal number between 0 (inclusive) and 1 (exclusive). Thus Math.random() can return a 0 but never return a 1.
+
+//Note: Like Storing Values with the Assignment Operator, all function calls will be resolved before the return executes, so we can return the value of the Math.random() function.
+
+//Change randomFraction to return a random number instead of returning 0.
+
+function randomFraction() {
+
+  // Only change code below this line
+
+  return Math.random();
+
+  // Only change code above this line
+}
+
+
+console.log(randomFraction);
+
+
+
+//Generate Random Whole Numbers with JavaScript
+//It's great that we can generate random decimal numbers, but it's even more useful if we use it to generate random whole numbers.
+
+//Use Math.random() to generate a random decimal.
+//Multiply that random decimal by 20.
+//Use another function, Math.floor() to round the number down to its nearest whole number.
+//Remember that Math.random() can never quite return a 1 and, because we're rounding down, it's impossible to actually get 20. This technique will give us a whole number between 0 and 19.
+
+//Putting everything together, this is what our code looks like:
+
+Math.floor(Math.random() * 20);
+//We are calling Math.random(), multiplying the result by 20, then passing the value to Math.floor() function to round the value down to the nearest whole number.
+
+//Use this technique to generate and return a random whole number between 0 and 9.
+
+function randomWholeNum() {
+
+  // Only change code below this line
+
+  return Math.floor(Math.random() * 10);;
+}
+
+//
+
+//Generate Random Whole Numbers within a Range
+//Instead of generating a random whole number between zero and a given number like we did before, we can generate a random whole number that falls within a range of two specific numbers.
+
+//To do this, we'll define a minimum number min and a maximum number max.
+
+//Here's the formula we'll use. Take a moment to read it and try to understand what this code is doing:
+
+Math.floor(Math.random() * (max - min + 1)) + min
+
+//Create a function called randomRange that takes a range myMin and myMax and returns a random whole number that's greater than or equal to myMin, and is less than or equal to myMax, inclusive.
+
+function randomRange(myMin, myMax) {
+  // Only change code below this line
+  return Math.floor(Math.random() * (myMax - myMin + 1)) + myMin;
+  // Only change code above this line
+}
+
+
+console.log(randomRange(200,10));
+
+// it will output the random numbers between 200-10.
+
+//Use the parseInt Function
+//The parseInt() function parses a string and returns an integer. Here's an example:
+
+const a = parseInt("007");
+//The above function converts the string 007 to the integer 7. If the first character in the string can't be converted into a number, then it returns NaN.
+
+//Use parseInt() in the convertToInteger function so it converts the input string str into an integer, and returns it.
+
+function convertToInteger(str) {
+  return parseInt(str)
+}
+
+console.log(convertToInteger("56"));
+
+//
+
+
+//Use the parseInt Function with a Radix
+//The parseInt() function parses a string and returns an integer. It takes a second argument for the radix, which specifies the base of the number in the string. The radix can be an integer between 2 and 36.
+
+//The function call looks like:
+
+parseInt(string, radix);
+//And here's an example:
+
+const aa = parseInt("11", 2);
+//The radix variable says that 11 is in the binary system, or base 2. This example converts the string 11 to an integer 3.
+
+//Use parseInt() in the convertToInteger function so it converts a binary number to an integer and returns it.
+
+function convertToInteger(str) {
+  return parseInt(str, 2)
+}
+
+convertToInteger("10011");
+
+
+//The following function uses an if/else statement to check a condition:
+
+function findGreater(a, b) {
+  if(a > b) {
+    return "a is greater";
+  }
+  else {
+    return "b is greater or equal";
+  }
+}
+//This can be re-written using the conditional operator:
+
+function findGreater(a, b) {
+  return a > b ? "a is greater" : "b is greater or equal";
+}
+//Use the conditional operator in the checkEqual function to check if two numbers are equal or not. The function should return either the string Equal or the string Not Equal.
+
+function checkEqual(a, b) {
+  return a === b ? "Equal" : "Not Equal";
+}
+
+checkEqual(1, 2);
+
+
+//Use Multiple Conditional (Ternary) Operators
+//In the previous challenge, you used a single conditional operator. You can also chain them together to check for multiple conditions.
+
+//In the checkSign function, use multiple conditional operators - following the recommended format used in findGreaterOrEqual - to check if a number is positive, negative or zero. The function should return positive, negative or zero.
+
+function checkSign(num) {
+  return ( num === 0) ? "zero"
+  : ( num < 0) ? "negative"
+  : "positive";
+}
+
+checkSign(10);
+
+// Use Recursion to Create a Countdown
+
+//In a previous challenge, you learned how to use recursion to replace a for loop. Now, let's look at a more complex function that returns an array of consecutive integers starting with 1 through the number passed to the function.
+
+//As mentioned in the previous challenge, there will be a base case. The base case tells the recursive function when it no longer needs to call itself. It is a simple case where the return value is already known. There will also be a recursive call which executes the original function with different arguments. If the function is written correctly, eventually the base case will be reached.
+
+//For example, say you want to write a recursive function that returns an array containing the numbers 1 through n. This function will need to accept an argument, n, representing the final number. Then it will need to call itself with progressively smaller values of n until it reaches 1. You could write the function as follows:
+
+function countup(n) {
+  if (n < 1) {
+    return [];
+  } else {
+    const countArray = countup(n - 1);
+    countArray.push(n);
+    return countArray;
+  }
+}
+console.log(countup(5));
+//The value [1, 2, 3, 4, 5] will be displayed in the console.
+
+//At first, this seems counterintuitive since the value of n decreases, but the values in the final array are increasing. This happens because the push happens last, after the recursive call has returned. At the point where n is pushed into the array, countup(n - 1) has already been evaluated and returned [1, 2, ..., n - 1].
+
+//We have defined a function called countdown with one parameter (n). The function should use recursion to return an array containing the integers n through 1 based on the n parameter. If the function is called with a number less than 1, the function should return an empty array. For example, calling this function with n = 5 should return the array [5, 4, 3, 2, 1]. Your function must use recursion by calling itself and must not use loops of any kind.
+
+// Only change code below this line
+function countdown(n){
+  if (n <= 0) {
+   return [];
+ } else {
+   const countArray = countdown(n - 1);
+   countArray.unshift(n);
+   return countArray;
+ }
+}
+// Only change code above this line
+
+console.log(countdown(5));
+
+// it will output [ 5, 4, 3, 2, 1 ]
+
+
+// Use Recursion to Create a Range of Numbers
+//Continuing from the previous challenge, we provide you another opportunity to create a recursive function to solve a problem.
+
+//We have defined a function named rangeOfNumbers with two parameters. The function should return an array of integers which begins with a number represented by the startNum parameter and ends with a number represented by the endNum parameter. The starting number will always be less than or equal to the ending number. Your function must use recursion by calling itself and not use loops of any kind. It should also work for cases where both startNum and endNum are the same.
+
+function rangeOfNumbers(startNum, endNum) {
+  if (endNum < startNum) {
+      return [];
+  }
+  else {
+    const countArray = rangeOfNumbers(startNum, endNum - 1);
+    countArray.push(endNum);
+    return countArray; 
+  }
+};
+
+
+
+console.log(rangeOfNumbers(1, 5)); [ 1, 2, 3, 4, 5 ]
+console.log(rangeOfNumbers(6, 9)); [ 6, 7, 8, 9 ]
+console.log(rangeOfNumbers(4, 4)); [ 4 ]
+
+// END OF THE BASIC JS
