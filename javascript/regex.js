@@ -185,3 +185,122 @@ console.log(result)
 
 
 //
+
+
+//Match Characters that Occur Zero or More Times
+//The last challenge used the plus + sign to look for characters that occur one or more times. There's also an option that matches characters that occur zero or more times.
+
+//The character to do this is the asterisk or star: *.
+
+let soccerWord = "gooooooooal!";
+let gPhrase = "gut feeling";
+let oPhrase = "over the moon";
+let goRegex = /go*/;
+soccerWord.match(goRegex);
+gPhrase.match(goRegex);
+oPhrase.match(goRegex);
+//In order, the three match calls would return the values ["goooooooo"], ["g"], and null.
+
+//For this challenge, chewieQuote has been initialized as the string Aaaaaaaaaaaaaaaarrrgh! behind the scenes. Create a regex chewieRegex that uses the * character to match an uppercase A character immediately followed by zero or more lowercase a characters in chewieQuote. Your regex does not need flags or character classes, and it should not match any of the other quotes.
+
+
+// Only change code below this line
+let chewieRegex = /Aa*/; // Change this line
+// Only change code above this line
+
+let result = chewieQuote.match(chewieRegex);
+
+//Find Characters with Lazy Matching
+//In regular expressions, a greedy match finds the longest possible part of a string that fits the regex pattern and returns it as a match. The alternative is called a lazy match, which finds the smallest possible part of the string that satisfies the regex pattern.
+
+//You can apply the regex /t[a-z]*i/ to the string "titanic". This regex is basically a pattern that starts with t, ends with i, and has some letters in between.
+
+//Regular expressions are by default greedy, so the match would return ["titani"]. It finds the largest sub-string possible to fit the pattern.
+
+//However, you can use the ? character to change it to lazy matching. "titanic" matched against the adjusted regex of /t[a-z]*?i/ returns ["ti"].
+
+//Note: Parsing HTML with regular expressions should be avoided, but pattern matching an HTML string with regular expressions is completely fine.
+
+//Fix the regex /<.*>/ to return the HTML tag <h1> and not the text "<h1>Winter is coming</h1>". Remember the wildcard . in a regular expression matches any character.
+
+
+// 
+let text = "<h1>Winter is coming</h1>";
+let myRegex = /<.*?>/; // Change this line
+let result = text.match(myRegex);
+
+console.log(myRegex);
+
+
+//Find One or More Criminals in a Hunt
+//Time to pause and test your new regex writing skills. A group of criminals escaped from jail and ran away, but you don't know how many. However, you do know that they stay close together when they are around other people. You are responsible for finding all of the criminals at once.
+
+//Here's an example to review how to do this:
+
+//The regex /z+/ matches the letter z when it appears one or more times in a row. It would find matches in all of the following strings:
+
+"z"
+"zzzzzz"
+"ABCzzzz"
+"zzzzABC"
+"abczzzzzzzzzzzzzzzzzzzzzabc"
+//But it does not find matches in the following strings since there are no letter z characters:
+
+""
+"ABC"
+"abcabc"
+//Write a greedy regex that finds one or more criminals within a group of other people. A criminal is represented by the capital letter C.
+
+
+let reCriminals = /C+/; // Change this line
+
+console.log(reCriminals)
+
+
+// Match All Letters and Numbers
+//Using character classes, you were able to search for all letters of the alphabet with [a-z]. This kind of character class is common enough that there is a shortcut for it, although it includes a few extra characters as well.
+
+//The closest character class in JavaScript to match the alphabet is \w. This shortcut is equal to [A-Za-z0-9_]. This character class matches upper and lowercase letters plus numbers. Note, this character class also includes the underscore character (_).
+
+let longHand = /[A-Za-z0-9_]+/;
+let shortHand = /\w+/;
+let numbers = "42";
+let varNames = "important_var";
+longHand.test(numbers);
+shortHand.test(numbers);
+longHand.test(varNames);
+shortHand.test(varNames);
+//All four of these test calls would return true.
+
+//These shortcut character classes are also known as shorthand character classes.
+
+//Use the shorthand character class \w to count the number of alphanumeric characters in various quotes and strings.
+
+// 
+let quoteSample = "The five boxing wizards jump quickly.";
+let alphabetRegexV2 = /\w+?/gi; // Change this line
+let result = quoteSample.match(alphabetRegexV2).length;
+
+console.log(alphabetRegexV2)
+
+
+// Restrict Possible Usernames
+
+//Usernames are used everywhere on the internet. They are what give users a unique identity on their favorite sites.
+
+//You need to check all the usernames in a database. Here are some simple rules that users have to follow when creating their username.
+
+//Usernames can only use alpha-numeric characters.
+
+//The only numbers in the username have to be at the end. There can be zero or more of them at the end. Username cannot start with the number.
+
+//Username letters can be lowercase and uppercase.
+
+//Usernames have to be at least two characters long. A two-character username can only use alphabet letters as characters.
+
+//Change the regex userCheck to fit the constraints listed above.
+
+
+let username = "JackOfAllTrades";
+let userCheck = /^[a-z][a-z]+\d*$|^[a-z]+\d\d+$/i; // Change this line
+let result = userCheck.test(username);
