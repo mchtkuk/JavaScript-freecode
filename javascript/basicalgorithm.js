@@ -84,4 +84,40 @@ console.log(findLongestWordLength("The quick brown fox jumped over the lazy dog"
 6
 
 
+Return Largest Numbers in Arrays
+//Return an array consisting of the largest number from each provided sub-array. For simplicity, the provided array will contain exactly 4 sub-arrays.
+
+//Remember, you can iterate through an array with a simple for loop, and access each member with array syntax arr[i].
+
+
+
+
+function largestOfFour(arr) {
+  let result = []
+  for (let i = 0; i < arr.length; i++ ) {
+    result.push(math.max(...arr[i]))
+  }
+  return result;
+}
+
+
+
+
+Confirm the Ending
+//Check if a string (first argument, str) ends with the given target string (second argument, target).
+
+//This challenge can be solved with the .endsWith() method, which was introduced in ES2015. But for the purpose of this challenge, we would like you to use one of the JavaScript substring methods instead.
+
+[Simple Version with ES5]
+
+function confirmEnding(str, target) {
+  if (str.endsWith(target)) {
+    return true;
+  }
+  return false;
+}
+
+
 //
+
+
