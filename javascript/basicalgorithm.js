@@ -117,7 +117,42 @@ function confirmEnding(str, target) {
   return false;
 }
 
+function confirmEnding(str, target) {
+  return str.substr(-target.length) === target
+ }
+ 
+ confirmEnding("Bastian", "n");
+//
+
+
+
+Repeat a String Repeat a String
+//Repeat a given string str (first argument) for num times (second argument). Return an empty string if num is not a positive number. For the purpose of this challenge, do not use the built-in .repeat() method.
+
+function repeatStringNumTimes(str, num) {
+  if (num <= 0) return "";
+  return str.repeat(num);
+}
+
+console.log(repeatStringNumTimes("abc", 4));
+
+-- 2
+
+function repeatStringNumTimes(str, num) {
+  var final = ""
+  if (num <= 0) return "";
+  for (var i = 0; i<num; i++) {
+    final += str;
+  }
+  return final;
+  
+}
+
+console.log(repeatStringNumTimes("abc", 4));
+
 
 //
+
+
 
 
